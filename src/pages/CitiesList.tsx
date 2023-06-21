@@ -1,16 +1,16 @@
 import { Link } from 'react-router-dom'
 import { useAppSelector } from '../hooks/redux'
-import { selectSelectedCities } from '../store/citiesSlice'
+import { selectBookmarkedCityNames } from '../store/citiesSlice'
 
 export const CitiesList = () => {
-  const selectedCities = useAppSelector(selectSelectedCities)
+  const bookmarkedCityNames = useAppSelector(selectBookmarkedCityNames)
 
   return (
     <header className="App-header">
       <ul>
-        {selectedCities.map((city) => (
-          <li key={city}>
-            <Link to={`/city/${city}`}>{city}</Link>
+        {bookmarkedCityNames.map((cityName) => (
+          <li key={cityName}>
+            <Link to={`/city/${cityName}`}>{cityName}</Link>
           </li>
         ))}
       </ul>

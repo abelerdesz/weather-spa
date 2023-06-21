@@ -6,14 +6,14 @@ import type { RootState } from '../store'
 
 interface CitiesState {
   cities: CapitalCity[]
-  selectedCityNames: string[]
+  bookmarkedCityNames: string[]
   isLoading: boolean
   error: string | null
 }
 
 const initialState: CitiesState = {
   cities: [],
-  selectedCityNames: [INITIAL_CITY_VALUE],
+  bookmarkedCityNames: [INITIAL_CITY_VALUE],
   isLoading: false,
   error: null
 }
@@ -27,9 +27,9 @@ const citiesSlice = createSlice({
   name: 'cities',
   initialState,
   reducers: {
-    addSelectedCity: (state, action: PayloadAction<string>) => {
-      if (!state.selectedCityNames.includes(action.payload)) {
-        state.selectedCityNames.push(action.payload)
+    addBookmarkedCityName: (state, action: PayloadAction<string>) => {
+      if (!state.bookmarkedCityNames.includes(action.payload)) {
+        state.bookmarkedCityNames.push(action.payload)
       }
     }
   },
@@ -54,11 +54,11 @@ const citiesSlice = createSlice({
   }
 })
 
-export const { addSelectedCity } = citiesSlice.actions
+export const { addBookmarkedCityName } = citiesSlice.actions
 
 export const selectCities = (state: RootState) => state.cities.cities
-export const selectSelectedCities = (state: RootState) =>
-  state.cities.selectedCityNames
+export const selectBookmarkedCityNames = (state: RootState) =>
+  state.cities.bookmarkedCityNames
 export const selectIsLoading = (state: RootState) => state.cities.isLoading
 export const selectError = (state: RootState) => state.cities.error
 
