@@ -33,7 +33,7 @@ export const AddCityToList = () => {
   }
 
   return (
-    <header className="App-header">
+    <>
       <Link to="/">Back</Link>
       <Typeahead
         id="city-typeahead"
@@ -46,6 +46,6 @@ export const AddCityToList = () => {
         maxResults={8}
       />
       {cityToSave && <button onClick={saveAndNavigateToList}>Save</button>}
-    </header>
+    </>
   )
 }
