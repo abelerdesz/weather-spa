@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { Link } from 'react-router-dom'
+import { AppContainer } from '../components/AppContainer'
 import { Heading } from '../components/Heading'
 import { UnstyledList } from '../components/UnstyledList'
 import { useAppSelector } from '../hooks/redux'
@@ -9,7 +10,7 @@ export const CitiesList = () => {
   const bookmarkedCityNames = useAppSelector(selectBookmarkedCityNames)
 
   return (
-    <>
+    <AppContainer>
       <UnstyledList>
         {bookmarkedCityNames.map((cityName) => (
           <Heading as="li" key={cityName}>
@@ -18,7 +19,7 @@ export const CitiesList = () => {
         ))}
       </UnstyledList>
       <AddCityButton to="/add-city">+</AddCityButton>
-    </>
+    </AppContainer>
   )
 }
 

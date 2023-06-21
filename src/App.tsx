@@ -8,10 +8,9 @@ import {
 import { CitiesList } from './pages/CitiesList'
 import { fetchCities } from './store/citiesSlice'
 import { useAppDispatch } from './hooks/redux'
-import './App.css'
 import { City } from './pages/City'
 import { AddCityToList } from './pages/AddCityToList'
-import { AppContainer } from './components/AppContainer'
+import './App.css'
 
 const router = createBrowserRouter(
   createRoutesFromElements([
@@ -28,11 +27,7 @@ function App() {
     dispatch(fetchCities())
   }, [dispatch])
 
-  return (
-    <AppContainer>
-      <RouterProvider router={router} />
-    </AppContainer>
-  )
+  return <RouterProvider router={router} />
 }
 
 export default App
