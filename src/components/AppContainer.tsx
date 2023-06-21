@@ -1,10 +1,16 @@
 import styled from '@emotion/styled'
 
-export const AppContainer = styled.main`
+interface Props {
+  justifyContent?: string
+}
+
+export const AppContainer = styled('main', {
+  shouldForwardProp: (prop) => prop !== 'justifyContent'
+})<Props>`
   min-height: 100vh;
   background: ${(props) => props.theme.color.background};
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: ${(props) => props.justifyContent || 'center'};
   align-items: center;
 `

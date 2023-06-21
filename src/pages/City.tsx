@@ -9,6 +9,7 @@ import {
   selectWeather
 } from '../store/weatherSlice'
 import { kelvinToCelsius } from '../utils'
+import { Heading } from '../components/Heading'
 
 export const City = () => {
   const { city: cityParam } = useParams()
@@ -35,12 +36,12 @@ export const City = () => {
   }
 
   return (
-    <header className="App-header">
+    <>
       <Link to="/">Back</Link>
-      <h1>{city?.name}</h1>
+      <Heading>{city?.name}</Heading>
       <h2>
         {weather?.main.temp && `${kelvinToCelsius(weather?.main.temp)} °C`}
       </h2>
-    </header>
+    </>
   )
 }
