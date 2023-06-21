@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from 'react'
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider
+} from 'react-router-dom'
+import { CitiesList } from './pages/CitiesList'
+import { fetchCities } from './store/citiesSlice'
+import { useAppDispatch } from './hooks/redux'
+import './App.css'
+
+const router = createBrowserRouter(
+  createRoutesFromElements([<Route path="/" element={<CitiesList />}></Route>])
+)
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    dispatch(fetchCities())
+  }, [dispatch])
+
+  return <RouterProvider router={router} />
 }
 
-export default App;
+export default App
