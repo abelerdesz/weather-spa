@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import styled from '@emotion/styled'
 import { useAppDispatch, useAppSelector } from '../hooks/redux'
 import {
   addBookmarkedCityName,
@@ -7,9 +8,7 @@ import {
   selectBookmarkedCityNames
 } from '../store/citiesSlice'
 import { Typeahead } from '../components/Typeahead'
-import 'react-bootstrap-typeahead/css/Typeahead.css'
 import { AppContainer } from '../components/AppContainer'
-import styled from '@emotion/styled'
 import { Button } from '../components/Button'
 import { HeaderWithNavigation } from '../components/HeaderWithNavigation'
 

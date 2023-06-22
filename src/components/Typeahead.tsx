@@ -1,8 +1,8 @@
 import styled from '@emotion/styled'
 import { Typeahead as ReactBootstrapTypeahead } from 'react-bootstrap-typeahead'
 import { ChevronDownIcon } from './icon/ChevronDownIcon'
-import 'react-bootstrap-typeahead/css/Typeahead.css'
 import type { TypeaheadComponentProps } from 'react-bootstrap-typeahead'
+import 'react-bootstrap-typeahead/css/Typeahead.css'
 
 export const Typeahead = (props: TypeaheadComponentProps) => {
   return (
