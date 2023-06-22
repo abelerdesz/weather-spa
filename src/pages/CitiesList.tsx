@@ -14,7 +14,7 @@ export const CitiesList = () => {
       <UnstyledList>
         {bookmarkedCityNames.map((cityName) => (
           <Heading as="li" key={cityName}>
-            <Link to={`/city/${cityName}`}>{cityName}</Link>
+            <Link to={`/city/${encodeURIComponent(cityName)}`}>{cityName}</Link>
           </Heading>
         ))}
       </UnstyledList>

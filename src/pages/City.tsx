@@ -13,6 +13,14 @@ export const City = () => {
   const { city: cityName } = useParams()
   const { weather, city, isLoading, error } = useWeatherForCity(cityName)
 
+  if (!cityName) {
+    return (
+      <AppContainer>
+        <Heading>Missing city parameter.</Heading>
+      </AppContainer>
+    )
+  }
+
   if (isLoading || !weather || !city) {
     return (
       <AppContainer>
