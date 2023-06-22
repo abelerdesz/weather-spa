@@ -13,7 +13,7 @@ import styled from '@emotion/styled'
 import { Button } from '../components/Button'
 import { HeaderWithNavigation } from '../components/HeaderWithNavigation'
 
-export const AddCityToList = () => {
+export const AddCity = () => {
   const [cityToSave, setCityToSave] = useState<string | null>(null)
   const dispatch = useAppDispatch()
   const allCities = useAppSelector(selectCities)

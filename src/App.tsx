@@ -9,13 +9,13 @@ import { CitiesList } from './pages/CitiesList'
 import { fetchCities } from './store/citiesSlice'
 import { useAppDispatch } from './hooks/redux'
 import { City } from './pages/City'
-import { AddCityToList } from './pages/AddCityToList'
+import { AddCity } from './pages/AddCity'
 
 const router = createBrowserRouter(
   createRoutesFromElements([
     <Route path="/" element={<CitiesList />}></Route>,
     <Route path="/city/:city" element={<City />}></Route>,
-    <Route path="/add-city" element={<AddCityToList />}></Route>
+    <Route path="/add-city" element={<AddCity />}></Route>
   ])
 )
 
