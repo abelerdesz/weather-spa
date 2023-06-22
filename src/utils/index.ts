@@ -9,7 +9,7 @@ export const getLocalTime = (weather: Weather) => {
 
 // I found the sunrise and sunset timestamps provided by OpenWeatherMap are inconsistent,
 // and I couldn't yet figure out why.
-// These calculcations (without the timezone offset) seems at least correct for my home city :)
+// These calculcations (without the timezone offset) at least seem correct for my home city :)
 export const getLocalSunrise = (weather: Weather) =>
   DateTime.fromSeconds(weather.sys.sunrise)
 
