@@ -34,11 +34,20 @@ export const City = () => {
   }, [dispatch, city])
 
   if (isLoading || !weather || !city) {
-    return <>Loading...</>
+    return (
+      <AppContainer>
+        <Heading>Loading...</Heading>
+      </AppContainer>
+    )
   }
 
   if (error) {
-    return <>Something happened: {error}</>
+    return (
+      <AppContainer>
+        <Heading>Something happened:</Heading>
+        <span>{error}</span>
+      </AppContainer>
+    )
   }
 
   return (
@@ -55,7 +64,7 @@ export const City = () => {
             type="weather"
             weather={weather}
             wrapperSize={6}
-            iconSize={6}
+            iconSize={5}
           />
 
           <WeatherDescription>
@@ -131,5 +140,5 @@ const DetailItemText = styled.span`
 const WeatherDescription = styled.span`
   color: ${(props) => props.theme.color.textLight};
   font-size: 1.2em;
-  margin-top: 8px;
+  margin-top: 12px;
 `
