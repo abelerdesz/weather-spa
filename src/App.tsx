@@ -10,7 +10,6 @@ import { fetchCities } from './store/citiesSlice'
 import { useAppDispatch } from './hooks/redux'
 import { City } from './pages/City'
 import { AddCityToList } from './pages/AddCityToList'
-import './App.css'
 
 const router = createBrowserRouter(
   createRoutesFromElements([
