@@ -11,7 +11,7 @@ import 'react-bootstrap-typeahead/css/Typeahead.css'
 import { AppContainer } from '../components/AppContainer'
 import styled from '@emotion/styled'
 import { Button } from '../components/Button'
-import { TopNavigation } from '../components/TopNavigation'
+import { HeaderWithNavigation } from '../components/HeaderWithNavigation'
 
 export const AddCityToList = () => {
   const [cityToSave, setCityToSave] = useState<string | null>(null)
@@ -39,7 +39,7 @@ export const AddCityToList = () => {
 
   return (
     <AppContainer justifyContent="space-between">
-      <TopNavigation to="/" />
+      <HeaderWithNavigation to="/" large />
       <SearchSection>
         <Typeahead
           id="city-typeahead"
@@ -64,7 +64,7 @@ const SearchSection = styled.section`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-end;
-  flex: 7;
+  flex: 1;
   width: 100%;
 `
 const SaveButton = styled(Button)<{ disabled: boolean }>`

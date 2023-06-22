@@ -10,6 +10,7 @@ import {
 } from '../store/weatherSlice'
 import { kelvinToCelsius } from '../utils'
 import { Heading } from '../components/Heading'
+import { HeaderWithNavigation } from '../components/HeaderWithNavigation'
 
 export const City = () => {
   const { city: cityParam } = useParams()
