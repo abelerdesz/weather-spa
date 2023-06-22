@@ -1,14 +1,6 @@
-import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import styled from '@emotion/styled'
-import { selectCities } from '../store/citiesSlice'
-import { useAppDispatch, useAppSelector } from '../hooks/redux'
-import {
-  fetchWeatherForCity,
-  selectError,
-  selectIsLoading,
-  selectWeather
-} from '../store/weatherSlice'
+import { useWeatherForCity } from '../hooks/weather'
 import { getLocalSunrise, getLocalSunset, kelvinToCelsius } from '../utils'
 import { Heading } from '../components/Heading'
 import { AppContainer } from '../components/AppContainer'
@@ -18,20 +10,8 @@ import { UnstyledList } from '../components/UnstyledList'
 import { Clock } from '../components/Clock'
 
 export const City = () => {
-  const { city: cityParam } = useParams()
-  const cities = useAppSelector(selectCities)
-  const city = cities.find((city) => city.name === cityParam)
-
-  const weather = useAppSelector(selectWeather)
-  const isLoading = useAppSelector(selectIsLoading)
-  const error = useAppSelector(selectError)
-  const dispatch = useAppDispatch()
-
-  useEffect(() => {
-    if (city) {
-      dispatch(fetchWeatherForCity(city))
-    }
-  }, [dispatch, city])
+  const { city: cityName } = useParams()
+  const { weather, city, isLoading, error } = useWeatherForCity(cityName)
 
   if (isLoading || !weather || !city) {
     return (
@@ -53,7 +33,7 @@ export const City = () => {
   return (
     <AppContainer>
       <HeaderWithNavigation to="/">
-        <Clock timezoneOffset={weather.timezone} />
+        <Clock weather={weather} />
       </HeaderWithNavigation>
 
       <WeatherSection>
