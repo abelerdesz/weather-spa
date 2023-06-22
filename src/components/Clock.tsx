@@ -1,15 +1,16 @@
 import styled from '@emotion/styled'
+import { Weather } from '../models/Weather'
 import { getLocalTime } from '../utils'
 
 interface Props {
-  timezoneOffset: number
+  weather: Weather
 }
 
-export const Clock = ({ timezoneOffset }: Props) => {
+export const Clock = ({ weather }: Props) => {
   return (
-    <StyledTime dateTime={getLocalTime(timezoneOffset).toISO() || ''}>
-      <span>{getLocalTime(timezoneOffset).toFormat('HH')}</span>
-      <span>{getLocalTime(timezoneOffset).toFormat('mm')}</span>
+    <StyledTime dateTime={getLocalTime(weather).toISO() || ''}>
+      <span>{getLocalTime(weather).toFormat('HH')}</span>
+      <span>{getLocalTime(weather).toFormat('mm')}</span>
     </StyledTime>
   )
 }

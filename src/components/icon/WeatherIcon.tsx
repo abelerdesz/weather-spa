@@ -1,7 +1,6 @@
-import { DateTime } from 'luxon'
 import { WEATHER_ICON_CLASSNAMES } from '../../constants'
 import { Weather } from '../../models/Weather'
-import { getLocalTime } from '../../utils'
+import { getLocalSunrise, getLocalSunset, getLocalTime } from '../../utils'
 import 'weather-icons/css/weather-icons.min.css'
 import styled from '@emotion/styled'
 
@@ -34,13 +33,9 @@ const WeatherIconInner = ({ type, weather, iconSize }: Props) => {
   }
 
   if (type === 'weather' && weather) {
-    const localTime = getLocalTime(weather.timezone)
-    const sunrise = DateTime.fromSeconds(weather.sys.sunrise).plus({
-      seconds: weather.timezone
-    })
-    const sunset = DateTime.fromSeconds(weather.sys.sunset).plus({
-      seconds: weather.timezone
-    })
+    const localTime = getLocalTime(weather)
+    const sunrise = getLocalSunrise(weather)
+    const sunset = getLocalSunset(weather)
     const isDaytime = localTime > sunrise && localTime < sunset
     const iconCode = `wi-owm-${isDaytime ? 'day' : 'night'}-${
       weather.weather[0].id
