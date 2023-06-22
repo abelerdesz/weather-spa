@@ -1,17 +1,28 @@
-import { DateTime } from 'luxon'
+import { DateTime, Duration } from 'luxon'
 import { Weather } from '../models/Weather'
 
 export const kelvinToCelsius = (kelvin: number) => Math.round(kelvin - 273.15)
 
-export const getLocalTime = (weather: Weather) => {
-  return DateTime.utc().plus({ seconds: weather.timezone })
+const setTimezoneFromSecondsOffset = (
+  date: DateTime,
+  secondsOffset: number
+) => {
+  return date.setZone(
+    `UTC+${Duration.fromMillis(secondsOffset * 1000).toFormat('hh:mm')}`
+  )
 }
 
-// I found the sunrise and sunset timestamps provided by OpenWeatherMap are inconsistent,
-// and I couldn't yet figure out why.
-// These calculcations (without the timezone offset) at least seem correct for my home city :)
+export const getLocalTime = (weather: Weather) =>
+  setTimezoneFromSecondsOffset(DateTime.utc(), weather.timezone)
+
 export const getLocalSunrise = (weather: Weather) =>
-  DateTime.fromSeconds(weather.sys.sunrise)
+  setTimezoneFromSecondsOffset(
+    DateTime.fromSeconds(weather.sys.sunrise),
+    weather.timezone
+  )
 
 export const getLocalSunset = (weather: Weather) =>
-  DateTime.fromSeconds(weather.sys.sunset)
+  setTimezoneFromSecondsOffset(
+    DateTime.fromSeconds(weather.sys.sunset),
+    weather.timezone
+  )
