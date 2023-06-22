@@ -57,6 +57,7 @@ const StyledTypeahead = styled(ReactBootstrapTypeahead)`
 
     > .dropdown-item {
       font-size: 2em;
+      line-height: 1;
       font-weight: 700;
       color: ${(props) => props.theme.color.textDark}!important;
 
@@ -66,6 +67,11 @@ const StyledTypeahead = styled(ReactBootstrapTypeahead)`
 
       &.rbt-menu-pagination-option {
         display: none;
+      }
+
+      &:hover,
+      &.active {
+        background: rgba(255, 255, 255, 0.1);
       }
     }
   }

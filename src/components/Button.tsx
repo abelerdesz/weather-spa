@@ -8,4 +8,10 @@ export const Button = styled.button`
   background: none;
   appearance: none;
   border: 0;
+  padding: 0.5em;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
 `
