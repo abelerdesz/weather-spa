@@ -1,5 +1,6 @@
 export interface Weather {
   dt: number
+  timezone: number
   sys: {
     sunrise: number
     sunset: number
