@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { ChevronLeft } from './ChevronLeft'
+import { ChevronLeftIcon } from './icon/ChevronLeftIcon'
 import { Link } from './Link'
 
 interface Props {
@@ -36,6 +36,6 @@ const Navigation = styled.nav`
   width: 100%;
   padding: 4px 0;
 `
-const BackIcon = styled(ChevronLeft)`
+const BackIcon = styled(ChevronLeftIcon)`
   color: ${(props) => props.theme.color.textLight};
 `

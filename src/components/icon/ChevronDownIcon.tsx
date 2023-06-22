@@ -3,7 +3,7 @@ interface Props {
   className?: string
 }
 
-export const Chevron = ({ size = 16, className }: Props) => {
+export const ChevronDownIcon = ({ size = 16, className }: Props) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

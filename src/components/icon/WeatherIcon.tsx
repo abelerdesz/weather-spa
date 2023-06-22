@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon'
-import { WEATHER_ICON_CLASSNAMES } from '../constants'
-import { Weather } from '../models/Weather'
-import { getLocalTime } from '../utils'
+import { WEATHER_ICON_CLASSNAMES } from '../../constants'
+import { Weather } from '../../models/Weather'
+import { getLocalTime } from '../../utils'
 import 'weather-icons/css/weather-icons.min.css'
 import styled from '@emotion/styled'
 

@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import styled from '@emotion/styled'
 import { selectCities } from '../store/citiesSlice'
 import { useAppDispatch, useAppSelector } from '../hooks/redux'
 import {
@@ -12,8 +13,7 @@ import { getLocalSunrise, getLocalSunset, kelvinToCelsius } from '../utils'
 import { Heading } from '../components/Heading'
 import { AppContainer } from '../components/AppContainer'
 import { HeaderWithNavigation } from '../components/HeaderWithNavigation'
-import styled from '@emotion/styled/macro'
-import { WeatherIcon } from '../components/WeatherIcon'
+import { WeatherIcon } from '../components/icon/WeatherIcon'
 import { UnstyledList } from '../components/UnstyledList'
 import { Clock } from '../components/Clock'
 
